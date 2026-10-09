@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lehman Travel — Barcelona Countdown</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0e2031;color:#fff;font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+.panel{max-width:940px;margin:auto;padding:10px 12px 12px;background:linear-gradient(160deg,#142e43,#0d1d2d);text-align:center}
+.eyebrow{font-size:12px;letter-spacing:3px;color:#e4c583;font-weight:700;margin:1px 0 8px}
+.hero{position:relative;overflow:hidden;border-radius:16px;height:112px;background:linear-gradient(#254a65 0%,#d08c79 55%,#d8ad7c 72%,#173348 100%)}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 75% 35%,#ffe6a9a8,transparent 37%)}
+.hero svg{position:absolute;bottom:-1px;left:0;width:100%;height:86%;filter:drop-shadow(0 -2px 8px #17263533)}
+.hero-label{position:absolute;bottom:7px;left:0;right:0;text-shadow:0 2px 12px #000;font-size:13px;letter-spacing:4px}
+h1{font-family:Georgia,serif;font-size:clamp(19px,4vw,30px);font-weight:400;margin:9px 0 9px}
+.count{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;max-width:650px;margin:auto}
+.cell{background:#223d53;border:1px solid #39566b;border-radius:12px;padding:8px 2px}
+.num{font-family:Georgia,serif;font-size:clamp(24px,6vw,42px);color:#f0d18c;line-height:1.05;font-variant-numeric:tabular-nums}
+.lab{color:#e6c786;font-size:10px;letter-spacing:2px;margin-top:4px}
+.date{font-size:14px;margin:9px 0 4px}.tag{color:#d5b97f;font-size:13px;font-style:italic}
+@media(max-width:420px){.panel{padding:9px 8px 10px}.hero{height:100px}.count{gap:5px}.cell{padding:11px 1px}.lab{font-size:8px;letter-spacing:1px}}
+</style></head><body><main class="panel">
+<div class="eyebrow">✈ &nbsp; LEHMAN TRAVEL · BARCELONA 2027</div>
+<div class="hero" role="img" aria-label="Illustrated Barcelona skyline at sunset">
+<svg viewBox="0 0 1000 250" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+<path fill="#244052" d="M0 193h70v-33h55v25h50v-48h45v35h55v-20h42v41h72v-38h50v25h40v-40h50v28h50v-31h53v49h40v-37h52v29h45v-55h50v38h65v-31h45v44h65v-28h40v75H0z"/>
+<path fill="#152c3c" d="M0 211h115v-32h60v27h62v-42h50v42h66v-33h62v38h65v-26h56v20h50v-28h40v34h80v-42h53v40h60v-31h65v28h60v-34h45v47h71v-20h70v60H0z"/>
+<g fill="#132c3a" stroke="#132c3a" stroke-width="6"><path d="M456 214V91l-13-34-11 34v123zM514 214V68l-12-36-12 36v146zM567 214V91l-13-34-11 34v123zM425 214V128l-10-28-10 28v86zM589 214V128l-10-28-10 28v86z"/><path d="M391 213q109-100 221 0z"/></g>
+<path fill="#102536" d="M0 222h1000v28H0z"/>
+</svg><div class="hero-label">BARCELONA · SPAIN</div></div>
+<h1>The Adventure Begins In</h1>
+<div class="count"><div class="cell"><div id="days" class="num">—</div><div class="lab">DAYS</div></div><div class="cell"><div id="hours" class="num">—</div><div class="lab">HOURS</div></div><div class="cell"><div id="minutes" class="num">—</div><div class="lab">MINUTES</div></div><div class="cell"><div id="seconds" class="num">—</div><div class="lab">SECONDS</div></div></div>
+<div class="date">✈ February 23, 2027 · Atlanta to Barcelona</div>
+<div class="tag">Your Mediterranean adventure awaits</div>
+</main>
+<script>
+const departure=Date.parse("2027-02-23T00:00:00-05:00");
+function tick(){let s=Math.max(0,Math.floor((departure-Date.now())/1000));const d=Math.floor(s/86400);s%=86400;const h=Math.floor(s/3600);s%=3600;const m=Math.floor(s/60),sec=s%60;
+for(const [id,v] of Object.entries({days:d,hours:h,minutes:m,seconds:sec}))document.getElementById(id).textContent=String(v).padStart(2,"0");}
+tick();setInterval(tick,1000);
+</script></body></html>
